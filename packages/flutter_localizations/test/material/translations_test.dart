@@ -100,14 +100,22 @@ void main() {
   }
 
   testWidgets('translations spot check', (WidgetTester tester) async {
+<<<<<<< HEAD
     Locale locale = const Locale.fromSubtags(languageCode: 'zh');
+=======
+    Locale locale = const Locale.fromSubtags(languageCode: 'zh', scriptCode: null, countryCode: null);
+>>>>>>> 1be60c9ddd67841af80d665f7eb46761dc76798e
     expect(GlobalMaterialLocalizations.delegate.isSupported(locale), isTrue);
     MaterialLocalizations localizations = await GlobalMaterialLocalizations.delegate.load(locale);
     expect(localizations, isA<MaterialLocalizationZh>());
     expect(localizations.firstPageTooltip, '第一页');
     expect(localizations.lastPageTooltip, '最后一页');
 
+<<<<<<< HEAD
     locale = const Locale.fromSubtags(languageCode: 'zu');
+=======
+    locale = const Locale.fromSubtags(languageCode: 'zu', scriptCode: null, countryCode: null);
+>>>>>>> 1be60c9ddd67841af80d665f7eb46761dc76798e
     localizations = await GlobalMaterialLocalizations.delegate.load(locale);
     expect(GlobalMaterialLocalizations.delegate.isSupported(locale), isTrue);
     expect(localizations.firstPageTooltip, 'Ikhasi lokuqala');

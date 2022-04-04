@@ -1292,6 +1292,7 @@ class LocalizationsGenerator {
       .replaceAll('@(supportedLanguageCodes)', supportedLanguageCodes.join(', '))
       .replaceAll('@(messageClassImports)', sortedClassImports.join('\n'))
       .replaceAll('@(delegateClass)', delegateClass)
+<<<<<<< HEAD
       .replaceAll('@(requiresFoundationImport)', useDeferredLoading ? '' : "import 'package:flutter/foundation.dart';")
       .replaceAll('@(requiresIntlImport)', _requiresIntlImport() ? "import 'package:intl/intl.dart' as intl;" : '')
       .replaceAll('@(canBeNullable)', usesNullableGetter ? '?' : '')
@@ -1307,6 +1308,15 @@ class LocalizationsGenerator {
         || message.isSelect
         || message.placeholdersRequireFormatting;
   });
+=======
+      .replaceAll('@(requiresFoundationImport)', _useDeferredLoading ? '' : "import 'package:flutter/foundation.dart';")
+      .replaceAll('@(requiresIntlImport)', _requiresIntlImport() ? "import 'package:intl/intl.dart' as intl;" : '')
+      .replaceAll('@(canBeNullable)', _usesNullableGetter ? '?' : '')
+      .replaceAll('@(needsNullCheck)', _usesNullableGetter ? '' : '!');
+  }
+
+  bool _requiresIntlImport() => _allMessages.any((Message message) => message.isPlural || message.placeholdersRequireFormatting);
+>>>>>>> 1be60c9ddd67841af80d665f7eb46761dc76798e
 
   void writeOutputFiles(Logger logger, { bool isFromYaml = false }) {
     // First, generate the string contents of all necessary files.
