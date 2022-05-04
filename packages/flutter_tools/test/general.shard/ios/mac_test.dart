@@ -443,7 +443,11 @@ Exited (sigterm)''',
   });
 
   group('remove Finder extended attributes', () {
+<<<<<<< HEAD
     late Directory projectDirectory;
+=======
+    Directory projectDirectory;
+>>>>>>> 1be60c9ddd67841af80d665f7eb46761dc76798e
     setUp(() {
       final MemoryFileSystem fs = MemoryFileSystem.test();
       projectDirectory = fs.directory('flutter_project');
